@@ -89,7 +89,6 @@ public class CalculatorView extends JFrame {
 			button.setBackground(new Color(230, 230, 230));
 		} else if (text.equals("=")) {
 			button.setBackground(new Color(102, 178, 255));
-			button.setForeground(Color.WHITE);
 		} else if (text.startsWith("M")) {
 			button.setBackground(new Color(255, 204, 102));
 		} else {
@@ -220,29 +219,33 @@ public class CalculatorView extends JFrame {
 	 * Reset all operation buttons to their default style
 	 */
 	private void resetOperationButtonStyles() {
-		addButton.setBackground(new Color(204, 204, 204));
-		addButton.setFont(new Font("Arial", Font.BOLD, 18));
+		Color buttonColor = new Color(204, 204, 204);
+		Font buttonFont = new Font("Arial", Font.BOLD, 18);
 
-		subtractButton.setBackground(new Color(204, 204, 204));
-		subtractButton.setFont(new Font("Arial", Font.BOLD, 18));
+		addButton.setBackground(buttonColor);
+		addButton.setFont(buttonFont);
 
-		multiplyButton.setBackground(new Color(204, 204, 204));
-		multiplyButton.setFont(new Font("Arial", Font.BOLD, 18));
+		subtractButton.setBackground(buttonColor);
+		subtractButton.setFont(buttonFont);
 
-		divideButton.setBackground(new Color(204, 204, 204));
-		divideButton.setFont(new Font("Arial", Font.BOLD, 18));
+		multiplyButton.setBackground(buttonColor);
+		multiplyButton.setFont(buttonFont);
 
-		squareButton.setBackground(new Color(204, 204, 204));
-		squareButton.setFont(new Font("Arial", Font.BOLD, 18));
+		divideButton.setBackground(buttonColor);
+		divideButton.setFont(buttonFont);
 
-		sqrtButton.setBackground(new Color(204, 204, 204));
-		sqrtButton.setFont(new Font("Arial", Font.BOLD, 18));
+		squareButton.setBackground(buttonColor);
+		squareButton.setFont(buttonFont);
+
+		sqrtButton.setBackground(buttonColor);
+		sqrtButton.setFont(buttonFont);
 	}
 
 	/**
 	 * Set an operation button to active style
 	 */
 	private void setOperationButtonActive(JButton button) {
+		button.setOpaque(true);
 		button.setBackground(new Color(255, 153, 0));
 		button.setFont(new Font("Arial", Font.BOLD, 20));
 	}
