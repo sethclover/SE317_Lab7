@@ -19,34 +19,9 @@ This is a simple GUI calculator application built using Java Swing and the MVC (
 
 ## How to Deploy
 
-### From Source Code
-
-1. Save the provided `Calculator.java` file to your local directory.
-2. Open a terminal/command prompt and navigate to the directory containing the file.
-3. Compile the Java file:
-   ```
-   javac Calculator.java
-   ```
-4. Run the compiled program:
-   ```
-   java Calculator
-   ```
-
-### As a JAR File (if you want to create one)
-
-1. First, compile the program as mentioned above.
-2. Create a manifest file (manifest.txt) with the following content:
-   ```
-   Main-Class: Calculator
-   ```
-3. Create the JAR file:
-   ```
-   jar cvfm Calculator.jar manifest.txt *.class
-   ```
-4. Run the JAR file:
-   ```
-   java -jar Calculator.jar
-   ```
+1. Run the command `make` to build the project
+2. Run the command `make run` to run the program
+3. Using `make clean` will remove all of the .Class files
 
 ## How to Use
 
@@ -96,4 +71,4 @@ A custom implementation of the Observer pattern is used to keep the view updated
 
 ## Credits
 
-This calculator was created as part of a lab assignment using the Java Swing library and MVC pattern.
+This calculator was created as part of a lab assignment using the Java Swing library and MVC pattern by Seth Clover (<sclover@iastate.edu>) and Tyler Gorton (<tjgorton@iastate.edu>).
