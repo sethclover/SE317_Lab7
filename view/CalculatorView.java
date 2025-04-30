@@ -6,7 +6,6 @@ import model.ModelObserver;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 
 /**
  * View part of the MVC pattern
@@ -29,8 +28,6 @@ public class CalculatorView extends JFrame implements ModelObserver {
     private JButton memorySubtractButton;
     private JButton memoryRecallButton;
     private JButton memoryClearButton;
-    
-    private CalculatorController controller;
     
     public CalculatorView() {
         // Set up the frame
@@ -170,9 +167,7 @@ public class CalculatorView extends JFrame implements ModelObserver {
     /**
      * Set the controller for this view
      */
-    public void setController(CalculatorController controller) {
-        this.controller = controller;
-        
+    public void setController(CalculatorController controller) {        
         // Add action listeners to buttons
         for (int i = 0; i < 10; i++) {
             final int digit = i;

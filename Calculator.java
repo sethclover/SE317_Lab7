@@ -23,7 +23,7 @@ public class Calculator {
         CalculatorView view = new CalculatorView();
         
         // Create the calculator controller
-        CalculatorController controller = new CalculatorController(model, view);
+        new CalculatorController(model, view);
         
         // Register the view as an observer of the model
         model.addObserver(view);
