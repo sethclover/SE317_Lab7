@@ -92,7 +92,7 @@ This calculator implements the MVC (Model-View-Controller) design pattern:
 - **View (CalculatorView)**: Displays the calculator GUI
 - **Controller (CalculatorController)**: Handles user inputs and updates the model accordingly
 
-The Observer pattern is used to keep the view updated with changes from the model.
+A custom implementation of the Observer pattern is used to keep the view updated with changes from the model. This implementation avoids using Java's deprecated Observable class.
 
 ## Credits
 
