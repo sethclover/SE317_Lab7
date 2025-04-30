@@ -1,5 +1,5 @@
 JAVAC = javac
-SRC = $(wildcard */*.java) Calculator.java
+SRC = $(wildcard src/**/*.java) src/Calculator.java
 OUTDIR = build
 MAIN_CLASS = Calculator
 
