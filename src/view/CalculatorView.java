@@ -1,8 +1,9 @@
 package view;
 
+import javax.swing.*;
+
 import controller.CalculatorController;
 
-import javax.swing.*;
 import java.awt.*;
 
 /**

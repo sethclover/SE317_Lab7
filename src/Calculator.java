@@ -1,6 +1,6 @@
+import controller.CalculatorController;
 import model.CalculatorModel;
 import view.CalculatorView;
-import controller.CalculatorController;
 
 import javax.swing.*;
 
@@ -11,7 +11,7 @@ public class Calculator {
 	public static void main(String[] args) {
 		// Set look and feel to system default
 		try {
-			// UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
