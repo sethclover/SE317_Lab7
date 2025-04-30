@@ -3,7 +3,7 @@ SE 317: Lab 7 - Interactive GUI System Testing
 
 ## 1. Introduction
 
-This document outlines the comprehensive test plan for the Scientific Calculator application, covering both model-level testing and GUI-level testing. The calculator is implemented using the MVC design pattern with Java Observer class implementation.
+This document outlines the comprehensive test plan for the Scientific Calculator application, covering both model-level testing and GUI-level testing. The calculator is implemented using the MVC design pattern with the Java Swing library.
 
 ## 2. Model Testing
 
@@ -121,7 +121,7 @@ Model testing will be performed using Java test code with simulated function cal
 
 ## 3. GUI Testing
 
-GUI testing will be performed using a UI test tool (Cypress, Selenium, Testigma, or similar). Each test case will include input sequence and expected visual results.
+GUI testing will be performed using the AssertJ-Swing UI testing library. Each test case will include input sequence and expected visual results.
 
 ### 3.1 TR1: Test GUI Functions
 
@@ -216,11 +216,8 @@ GUI testing will be performed using a UI test tool (Cypress, Selenium, Testigma,
 
 ## 5. Test Environment
 
-- Hardware: [Specify hardware requirements]
 - Software: Java Development Kit (JDK) 17
-- UI Testing Tool: [Specify which tool is being used]
-- Operating System: [Specify supported operating systems]
-- Screen Resolution: 1920x1080 (minimum)
+- Libraries: JUnit, Hamcrest, AssertJ-Swing
 
 ## 6. Test Execution Plan
 
