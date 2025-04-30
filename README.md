@@ -43,7 +43,7 @@ This is a simple GUI calculator application built using Java Swing and the MVC (
   - Only works after completing a calculation (pressing =)
 - **M-**: Subtracts the current displayed result from memory
   - Only works after completing a calculation (pressing =)
-- **MR**: Recalls the number stored in memory and displays it
+- **MR**: Recalls the number stored in memory and uses it as an input operand
 - **MC**: Clears the memory
 
 ### Other Functions
@@ -66,8 +66,6 @@ This calculator implements the MVC (Model-View-Controller) design pattern:
 - **Model (CalculatorModel)**: Contains the calculator logic and data
 - **View (CalculatorView)**: Displays the calculator GUI
 - **Controller (CalculatorController)**: Handles user inputs and updates the model accordingly
-
-A custom implementation of the Observer pattern is used to keep the view updated with changes from the model. This implementation avoids using Java's deprecated Observable class.
 
 ## Credits
 
