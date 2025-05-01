@@ -49,9 +49,6 @@ public class CalculatorController {
 	 */
 	public void equalsPressed() {
 		String result = model.calculate();
-		// if (result.startsWith("Error")) {
-		// view.showMessage(result);
-		// }
 		view.setDisplayText(result);
 		view.setActiveOperationButton(model.getCurrentOperation());
 	}
@@ -78,9 +75,6 @@ public class CalculatorController {
 	 */
 	public void memoryAddPressed() {
 		String result = model.addToMemory();
-		// if (result.startsWith("Error")) {
-		// view.showMessage(result);
-		// }
 		view.setDisplayText(result);
 	}
 
@@ -89,9 +83,6 @@ public class CalculatorController {
 	 */
 	public void memorySubtractPressed() {
 		String result = model.subtractFromMemory();
-		// if (result.startsWith("Error")) {
-		// view.showMessage(result);
-		// }
 		view.setDisplayText(result);
 	}
 

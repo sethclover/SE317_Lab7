@@ -1,12 +1,6 @@
 import org.assertj.swing.fixture.FrameFixture;
 import org.assertj.swing.fixture.JButtonFixture;
 import org.assertj.swing.junit.testcase.AssertJSwingJUnitTestCase;
-// import org.assertj.swing.core.BasicRobot;
-// import org.junit.jupiter.api.AfterEach;
-// import org.junit.jupiter.api.BeforeEach;
-// import org.junit.jupiter.api.Test;
-// import org.junit.Before;
-// import org.junit.After;
 import org.junit.Test;
 import java.awt.Color;
 
@@ -189,8 +183,7 @@ public class CalculatorGUITest extends AssertJSwingJUnitTestCase {
 		window.button(withText("2")).click();
 		window.button(withText("3")).click();
 		window.button(withText("M+")).click();
-		window.optionPane().requireMessage("Error: Only results can be added to memory");
-		window.optionPane().okButton().click();
+		window.textBox().requireText("Error: Only results can be added to memory");
 	}
 
 	@Test
