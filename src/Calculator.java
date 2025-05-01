@@ -16,16 +16,18 @@ public class Calculator {
 			e.printStackTrace();
 		}
 
-		// Create the calculator model
-		CalculatorModel model = new CalculatorModel();
+		SwingUtilities.invokeLater(() -> {
+			// Create the calculator model
+			CalculatorModel model = new CalculatorModel();
 
-		// Create the calculator view
-		CalculatorView view = new CalculatorView();
+			// Create the calculator view
+			CalculatorView view = new CalculatorView();
 
-		// Create the calculator controller
-		new CalculatorController(model, view);
+			// Create the calculator controller
+			new CalculatorController(model, view);
 
-		// Start the application
-		view.setVisible(true);
+			// Start the application
+			view.setVisible(true);
+		});
 	}
 }

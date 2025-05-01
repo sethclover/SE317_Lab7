@@ -30,7 +30,9 @@ public class CalculatorView extends JFrame {
 
 	public CalculatorView() {
 		// Set up the frame
-		setTitle("Calculator");
+		super("Calculator");
+		setName("Calculator");
+		// setTitle("Calculator");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(350, 500);
 		setLocationRelativeTo(null);
@@ -59,22 +61,22 @@ public class CalculatorView extends JFrame {
 		}
 
 		// Operation buttons
-		decimalButton = createButton(".");
-		equalsButton = createButton("=");
-		addButton = createButton("+");
-		subtractButton = createButton("-");
-		multiplyButton = createButton("×");
-		divideButton = createButton("÷");
-		squareButton = createButton("x²");
-		sqrtButton = createButton("√");
-		deleteButton = createButton("DEL");
-		clearButton = createButton("C");
+		decimalButton = createButton("Decimal", ".");
+		equalsButton = createButton("Equals", "=");
+		addButton = createButton("Add", "+");
+		subtractButton = createButton("Subtract", "-");
+		multiplyButton = createButton("Multiply", "×");
+		divideButton = createButton("Divide", "÷");
+		squareButton = createButton("Square", "x²");
+		sqrtButton = createButton("Sqrt", "√");
+		deleteButton = createButton("Delete", "DEL");
+		clearButton = createButton("Clear", "C");
 
 		// Memory buttons
-		memoryAddButton = createButton("M+");
-		memorySubtractButton = createButton("M-");
-		memoryRecallButton = createButton("MR");
-		memoryClearButton = createButton("MC");
+		memoryAddButton = createButton("MemAdd", "M+");
+		memorySubtractButton = createButton("MemSubtract", "M-");
+		memoryRecallButton = createButton("MemRecall", "MR");
+		memoryClearButton = createButton("MemClear", "MC");
 	}
 
 	/**
@@ -96,6 +98,12 @@ public class CalculatorView extends JFrame {
 			button.setBackground(new Color(204, 204, 204));
 		}
 
+		return button;
+	}
+
+	private JButton createButton(String name, String text) {
+		JButton button = createButton(text);
+		button.setName(name);
 		return button;
 	}
 
@@ -225,21 +233,27 @@ public class CalculatorView extends JFrame {
 
 		addButton.setBackground(buttonColor);
 		addButton.setFont(buttonFont);
+		addButton.setOpaque(false);
 
 		subtractButton.setBackground(buttonColor);
 		subtractButton.setFont(buttonFont);
+		subtractButton.setOpaque(false);
 
 		multiplyButton.setBackground(buttonColor);
 		multiplyButton.setFont(buttonFont);
+		multiplyButton.setOpaque(false);
 
 		divideButton.setBackground(buttonColor);
 		divideButton.setFont(buttonFont);
+		divideButton.setOpaque(false);
 
 		squareButton.setBackground(buttonColor);
 		squareButton.setFont(buttonFont);
+		squareButton.setOpaque(false);
 
 		sqrtButton.setBackground(buttonColor);
 		sqrtButton.setFont(buttonFont);
+		sqrtButton.setOpaque(false);
 	}
 
 	/**
