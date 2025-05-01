@@ -128,11 +128,11 @@ GUI testing will be performed using a UI test tool (Cypress, Selenium, Testigma,
 | Test ID | Test Case | Input Sequence | Expected Result |
 |---------|-----------|----------------|-----------------|
 | GUI-TR1-01 | Basic Addition | Click 1, 2, +, 3, 4, = | Display shows 46 |
-| GUI-TR1-02 | Basic Subtraction | Click 5, 0, -, 2, 5, = | Display shows 25 |
-| GUI-TR1-03 | Basic Multiplication | Click 1, 2, *, 5, = | Display shows 60 |
-| GUI-TR1-04 | Basic Division | Click 1, 0, 0, /, 2, 0, = | Display shows 5 |
-| GUI-TR1-05 | Square Function | Click 9, (square) | Display shows 81 |
-| GUI-TR1-06 | Square Root Function | Click 2, 5, (square root) | Display shows 5 |
+| GUI-TR1-02 | Basic Subtraction | Click 5, 0, -, 2, 0, = | Display shows 30 |
+| GUI-TR1-03 | Basic Multiplication | Click 7, *, 8, = | Display shows 56 |
+| GUI-TR1-04 | Basic Division | Click 1, 0, 0, /, 2, 5, = | Display shows 4 |
+| GUI-TR1-05 | Square Function | Click 5, (square), = | Display shows 25 |
+| GUI-TR1-06 | Square Root Function | Click 1, 6, (square root), = | Display shows 4 |
 
 ### 3.2 TR2: Only Operands and Results are Displayed
 

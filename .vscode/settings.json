@@ -3,20 +3,11 @@
 	"java.project.referencedLibraries": [
 		"lib/junit-4.13.2.jar",
 		"lib/hamcrest-core-1.3.jar",
-		"c:\\Users\\sethc\\Downloads\\junit-jupiter-api-5.10.2.jar",
-		"c:\\Users\\sethc\\jar\\assertj-swing-3.17.1.jar",
-		"c:\\Users\\sethc\\jar\\assertj-core-3.27.3.jar",
-		"c:\\Users\\sethc\\jar\\junit-jupiter-engine-5.10.0.jar",
-		"c:\\Users\\sethc\\jar\\junit-platform-engine-1.10.0.jar",
-		"lib/assertj-core-3.27.3.jar",
 		"lib/assertj-swing-3.17.1.jar",
-		"lib/assertj-swing-junit-3.17.1.jar",
-		"lib/junit-jupiter-api-5.10.0.jar",
-		"lib/junit-jupiter-engine-5.10.0.jar",
-		"lib/junit-platform-commons-1.10.0.jar",
-		"lib/junit-platform-engine-1.10.0.jar",
 		"lib/junit-platform-launcher-1.10.0.jar",
 		"lib/opentest4j-1.3.0.jar",
-		"lib/fest-reflect-1.4.1.jar"
+		"lib/fest-reflect-1.4.1.jar",
+		"lib/assertj-core-3.27.3.jar",
+		"lib/assertj-swing-junit-3.17.1.jar"
 	]
 }
