@@ -1,154 +1,149 @@
-# Scientific Calculator - Comprehensive Test Plan
+# GUI Calculator - Comprehensive Test Plan
 SE 317: Lab 7 - Interactive GUI System Testing
 
 ## 1. Introduction
 
-This document outlines the comprehensive test plan for the Scientific Calculator application, covering both model-level testing and GUI-level testing. The calculator is implemented using the MVC design pattern with Java Observer class implementation.
+This document outlines the comprehensive test plan for a simple GUI Calculator application, implemented using the MVC design pattern with the Java Swing library. The test plan covers both model-level testing (computational logic) and GUI-level testing (user interface functionality). Model tests are performed using JUnit 4, and GUI tests are conducted using AssertJ Swing.
 
 ## 2. Model Testing
 
-Model testing will be performed using Java test code with simulated function calls to verify the computational logic. Each test case will include the input sequence, expected output, and actual output.
+Model testing is performed using JUnit 4 test code with simulated function calls to verify the computational logic of the `CalculatorModel` class. Each test case includes the input sequence, expected output, and actual output. The tests cover initial state, digit and decimal input, basic arithmetic operations, advanced operations, error handling, memory operations, and chained operations.
 
 ### 2.1 Basic Operations Tests
+#### 2.1.1 Initial State and Input Tests
 
-#### 2.1.1 Addition Tests
-| Test ID | Test Case | Input Sequence | Expected Result |
-|---------|-----------|----------------|-----------------|
-| M-ADD-01 | Basic Addition | 123 + 456 = | 579 |
-| M-ADD-02 | Addition with Decimal | 12.34 + 56.78 = | 69.12 |
-| M-ADD-03 | Addition with Negative Number | -25 + 10 = | -15 |
-| M-ADD-04 | Zero Addition | 0 + 0 = | 0 |
+| Test ID    | Test Case               | Input Sequence                                        | Expected Result                            |
+| ---------- | ----------------------- | ----------------------------------------------------- | ------------------------------------------ |
+| M-INIT-01  | Initial State           | None                                                  | Display is "0", Current operation is empty |
+| M-INPUT-01 | Add Single Digit        | Input "5"                                             | Display is "5"                             |
+| M-INPUT-02 | Add Multiple Digits     | Input "5", "3"                                        | Display is "53"                            |
+| M-INPUT-03 | Add Digit After Result  | Input "5", set "add", input "3", calculate, input "7" | Display is "7"                             |
+| M-INPUT-04 | Add Decimal Point       | Input decimal point                                   | Display is "0."                            |
+| M-INPUT-05 | Add Decimal Digit       | Input decimal point, input "5"                        | Display is "0.5"                           |
+| M-INPUT-06 | Multiple Decimal Points | Input "5", decimal point, "3", decimal point          | Display is "5.3"                           |
+| M-INPUT-07 | Delete Last Character   | Input "1", "2", "3", delete                           | Display is "12"                            |
+| M-INPUT-08 | Delete All Characters   | Input "1", "2", "3", delete, delete, delete           | Display is "0"                             |
 
-#### 2.1.2 Subtraction Tests
-| Test ID | Test Case | Input Sequence | Expected Result |
-|---------|-----------|----------------|-----------------|
-| M-SUB-01 | Basic Subtraction | 456 - 123 = | 333 |
-| M-SUB-02 | Subtraction with Decimal | 56.78 - 12.34 = | 44.44 |
-| M-SUB-03 | Subtraction with Negative Result | 25 - 50 = | -25 |
-| M-SUB-04 | Subtraction with Zero | 45 - 0 = | 45 |
 
-#### 2.1.3 Multiplication Tests
-| Test ID | Test Case | Input Sequence | Expected Result |
-|---------|-----------|----------------|-----------------|
-| M-MUL-01 | Basic Multiplication | 12 * 34 = | 408 |
-| M-MUL-02 | Multiplication with Decimal | 5.5 * 2.0 = | 11.0 |
-| M-MUL-03 | Multiplication with Negative Number | -3 * 4 = | -12 |
-| M-MUL-04 | Multiplication with Zero | 567 * 0 = | 0 |
+#### 2.1.2 Addition Tests
 
-#### 2.1.4 Division Tests
-| Test ID | Test Case | Input Sequence | Expected Result |
-|---------|-----------|----------------|-----------------|
-| M-DIV-01 | Basic Division | 100 / 5 = | 20 |
-| M-DIV-02 | Division with Decimal | 10 / 4 = | 2.5 |
-| M-DIV-03 | Division with Negative Number | -15 / 3 = | -5 |
-| M-DIV-04 | Division by Zero | 25 / 0 = | Error |
+| Test ID  | Test Case      | Input Sequence                             | Expected Result |
+| -------- | -------------- | ------------------------------------------ | --------------- |
+| M-ADD-01 | Basic Addition | Input "5", set "add", input "3", calculate | Result is "8"   |
+
+
+#### 2.1.3 Subtraction Tests
+
+| Test ID  | Test Case         | Input Sequence                                   | Expected Result |
+| -------- | ----------------- | ------------------------------------------------ | --------------- |
+| M-SUB-01 | Basic Subtraction | Input "10", set "subtract", input "4", calculate | Result is "6"   |
+
+
+#### 2.1.4 Multiplication Tests
+
+| Test ID  | Test Case            | Input Sequence                                  | Expected Result |
+| -------- | -------------------- | ----------------------------------------------- | --------------- |
+| M-MUL-01 | Basic Multiplication | Input "6", set "multiply", input "7", calculate | Result is "42"  |
+
+
+#### 2.1.5 Division Tests
+
+| Test ID  | Test Case        | Input Sequence                                 | Expected Result                |
+| -------- | ---------------- | ---------------------------------------------- | ------------------------------ |
+| M-DIV-01 | Basic Division   | Input "20", set "divide", input "4", calculate | Result is "5"                  |
+| M-DIV-02 | Decimal Division | Input "10", set "divide", input "3", calculate | Result is "3.3333333333333335" |
+
 
 ### 2.2 Advanced Operations Tests
 
 #### 2.2.1 Square Tests
-| Test ID | Test Case | Input Sequence | Expected Result |
-|---------|-----------|----------------|-----------------|
-| M-SQR-01 | Square of Integer | 12 (square) | 144 |
-| M-SQR-02 | Square of Decimal | 1.5 (square) | 2.25 |
-| M-SQR-03 | Square of Negative Number | -6 (square) | 36 |
-| M-SQR-04 | Square of Zero | 0 (square) | 0 |
+
+| Test ID  | Test Case         | Input Sequence                     | Expected Result |
+| -------- | ----------------- | ---------------------------------- | --------------- |
+| M-SQR-01 | Square of Integer | Input "9", set "square", calculate | Result is "81"  |
+
 
 #### 2.2.2 Square Root Tests
-| Test ID | Test Case | Input Sequence | Expected Result |
-|---------|-----------|----------------|-----------------|
-| M-SQRT-01 | Square Root of Perfect Square | 64 (square root) | 8 |
-| M-SQRT-02 | Square Root of Non-Perfect Square | 10 (square root) | 3.16227... |
-| M-SQRT-03 | Square Root of Zero | 0 (square root) | 0 |
-| M-SQRT-04 | Square Root of Negative Number | -9 (square root) | Error |
+
+| Test ID   | Test Case                     | Input Sequence                    | Expected Result |
+| --------- | ----------------------------- | --------------------------------- | --------------- |
+| M-SQRT-01 | Square Root of Perfect Square | Input "16", set "sqrt", calculate | Result is "4"   |
+
 
 ### 2.3 Memory Operation Tests
 
 #### 2.3.1 Memory Addition (M+) Tests
-| Test ID | Test Case | Input Sequence | Expected Result |
-|---------|-----------|----------------|-----------------|
-| M-MADD-01 | Add Value to Empty Memory | 125 = M+ | Memory contains 125 |
-| M-MADD-02 | Add Value to Existing Memory | 50 = M+, 25 = M+ | Memory contains 75 |
-| M-MADD-03 | Add Negative Value to Memory | -30 = M+, 50 = M+ | Memory contains 20 |
-| M-MADD-04 | Add Value without Executing Operation | 123 M+ | Error |
+
+| Test ID   | Test Case           | Input Sequence                                 | Expected Result                                       |
+| --------- | ------------------- | ---------------------------------------------- | ----------------------------------------------------- |
+| M-MADD-01 | Add Value to Memory | Input "5", set "add", input "5", calculate, M+ | Message is "Value added to memory", Recall shows "10" |
 
 #### 2.3.2 Memory Subtraction (M-) Tests
-| Test ID | Test Case | Input Sequence | Expected Result |
-|---------|-----------|----------------|-----------------|
-| M-MSUB-01 | Subtract Value from Memory | 100 = M+, 30 = M- | Memory contains 70 |
-| M-MSUB-02 | Subtract to Negative Memory | 50 = M+, 75 = M- | Memory contains -25 |
-| M-MSUB-03 | Subtract from Empty Memory | 30 = M- | Memory contains -30 |
-| M-MSUB-04 | Subtract without Executing Operation | 123 M- | Error |
 
-#### 2.3.3 Memory Recall (MR) Tests
-| Test ID | Test Case | Input Sequence | Expected Result |
-|---------|-----------|----------------|-----------------|
-| M-MR-01 | Recall Memory as First Operand | 50 = M+, MR + 25 = | 75 |
-| M-MR-02 | Recall Memory as Second Operand | 10 = M+, 5 + MR = | 15 |
-| M-MR-03 | Recall Empty Memory | MR | 0 |
-| M-MR-04 | Recall Memory for Unary Operation | 25 = M+, MR (square) | 625 |
+| Test ID   | Test Case                  | Input Sequence                                                           | Expected Result                                             |
+| --------- | -------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------- |
+| M-MSUB-01 | Subtract Value from Memory | Input "5", set "add", input "5", calculate, M+, input "3", calculate, M- | Message is "Value subtracted from memory", Recall shows "7" |
 
-#### 2.3.4 Memory Clear (MC) Tests
-| Test ID | Test Case | Input Sequence | Expected Result |
-|---------|-----------|----------------|-----------------|
-| M-MC-01 | Clear Memory | 50 = M+, MC, MR | 0 |
-| M-MC-02 | Clear Empty Memory | MC, MR | 0 |
+#### 2.3.3 Memory Recall (MR) and Clear (MC) Tests
 
-### 2.4 Delete Operation Tests
+| Test ID | Test Case     | Input Sequence                                                       | Expected Result |
+| ------- | ------------- | -------------------------------------------------------------------- | --------------- |
+| M-MR-01 | Recall Memory | Input "5", set "add", input "5", calculate, M+, recall               | Display is "10" |
+| M-MC-01 | Clear Memory  | Input "5", set "add", input "5", calculate, M+, clear memory, recall | Display is "0"  |
 
-| Test ID | Test Case | Input Sequence | Expected Result |
-|---------|-----------|----------------|-----------------|
-| M-DEL-01 | Delete Last Digit | Enter 1234, Delete | 123 |
-| M-DEL-02 | Delete Decimal Point | Enter 123.4, Delete | 123 |
-| M-DEL-03 | Multiple Delete Operations | Enter 1234.5, Delete (3 times) | 123 |
-| M-DEL-04 | Delete All Digits | Enter 123, Delete (3 times) | 0 |
+### 2.4 Edge Case Tests
 
-### 2.5 Clear Operation Tests
+| Test ID   | Test Case            | Input Sequence                                                              | Expected Result                                               |
+| --------- | -------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| M-EDGE-01 | Division by Zero     | Input "5", set "divide", input "0", calculate                               | Result is "Error: Division by zero"                           |
+| M-EDGE-02 | Negative Square Root | Input "-16", set "sqrt", calculate                                          | Result is "Error: Cannot take square root of negative number" |
+| M-EDGE-03 | Chained Operations   | Input "5", set "add", input "3", set "multiply", input "2", calculate       | Result is "16"                                                |
+| M-EDGE-04 | Repeated Equals      | Input "5", set "add", input "3", calculate, set "add", input "2", calculate | Result is "10"                                                |
 
-| Test ID | Test Case | Input Sequence | Expected Result |
-|---------|-----------|----------------|-----------------|
-| M-CLR-01 | Clear Current Operation | Enter 123, Clear | 0 |
-| M-CLR-02 | Clear Memory with Clear | 50 = M+, Clear, MR | 0 |
-| M-CLR-03 | Clear in Middle of Operation | 123 + 456, Clear | 0 |
-
-### 2.6 Edge Case Tests
-
-| Test ID | Test Case | Input Sequence | Expected Result |
-|---------|-----------|----------------|-----------------|
-| M-EDGE-01 | Very Large Numbers | 9999999 * 9999999 = | Error or Correct Result (depends on implementation) |
-| M-EDGE-02 | Very Small Decimals | 0.0000001 * 0.0000001 = | 0.00000000000001 or Rounded Result |
-| M-EDGE-03 | Multiple Operations | 5 + 5 = * 2 = | 20 |
-| M-EDGE-04 | Changing Operations | 5 + (press +) (press -) 3 = | 2 |
 
 ## 3. GUI Testing
 
-GUI testing will be performed using a UI test tool (Cypress, Selenium, Testigma, or similar). Each test case will include input sequence and expected visual results.
+GUI testing is performed using AssertJ Swing, a UI testing tool for Java Swing applications. Each test case includes the input sequence (button clicks) and the expected visual result (display text or button state). The tests cover basic operations, advanced operations, memory functions, display behavior, button states, error handling, and clear/delete operations.
 
 ### 3.1 TR1: Test GUI Functions
 
-| Test ID | Test Case | Input Sequence | Expected Result |
-|---------|-----------|----------------|-----------------|
-| GUI-TR1-01 | Basic Addition | Click 1, 2, +, 3, 4, = | Display shows 46 |
-| GUI-TR1-02 | Basic Subtraction | Click 5, 0, -, 2, 0, = | Display shows 30 |
-| GUI-TR1-03 | Basic Multiplication | Click 7, *, 8, = | Display shows 56 |
-| GUI-TR1-04 | Basic Division | Click 1, 0, 0, /, 2, 5, = | Display shows 4 |
-| GUI-TR1-05 | Square Function | Click 5, (square), = | Display shows 25 |
-| GUI-TR1-06 | Square Root Function | Click 1, 6, (square root), = | Display shows 4 |
+| Test ID    | Test Case            | Input Sequence            | Expected Result    |
+| ---------- | -------------------- | ------------------------- | ------------------ |
+| GUI-TR1-01 | Basic Addition       | Click 1, 2, +, 3, 4, =    | Display shows "46" |
+| GUI-TR1-02 | Basic Subtraction    | Click 5, 0, -, 2, 0, =    | Display shows "30" |
+| GUI-TR1-03 | Basic Multiplication | Click 7, ×, 8, =          | Display shows "56" |
+| GUI-TR1-04 | Basic Division       | Click 1, 0, 0, /, 2, 5, = | Display shows "4"  |
+| GUI-TR1-05 | Square Function      | Click 5, x², =            | Display shows "25" |
+| GUI-TR1-06 | Square Root Function | Click 1, 6, √, =          | Display shows "4"  |
+
 
 ### 3.2 TR2: Only Operands and Results are Displayed
 
-| Test ID | Test Case | Input Sequence | Expected Result |
-|---------|-----------|----------------|-----------------|
-| GUI-TR2-01 | Addition Display | Click 1, 1, 1, 1, 1, 1, + | Display shows 111111 (operation not shown) |
-| GUI-TR2-02 | Operation Switching | Click 1, 2, 3, +, -, *, / | Display shows 123 (only operand shown) |
-| GUI-TR2-03 | Second Operand Display | Click 1, 2, 3, +, 4, 5, 6 | Display shows 456 (first operand replaced) |
+| Test ID    | Test Case                                | Input Sequence   | Expected Result     |
+| ---------- | ---------------------------------------- | ---------------- | ------------------- |
+| GUI-TR2-01 | Display Digits                           | Click 1          | Display shows "1"   |
+| GUI-TR2-02 | Display Digits (Multiple)                | Click 1, 2       | Display shows "12"  |
+| GUI-TR2-03 | Display Digits (Multiple)                | Click 1, 2, 3    | Display shows "123" |
+| GUI-TR2-04 | Display During Addition (First Operand)  | Click 2          | Display shows "2"   |
+| GUI-TR2-05 | Display During Addition (After Operator) | Click 2, +       | Display shows "2"   |
+| GUI-TR2-06 | Display During Addition (Second Operand) | Click 2, +, 3    | Display shows "3"   |
+| GUI-TR2-07 | Display During Addition (Result)         | Click 2, +, 3, = | Display shows "5"   |
+| GUI-TR2-08 | Display Decimal                          | Click 4          | Display shows "4"   |
+| GUI-TR2-09 | Display Decimal (Point)                  | Click 4, .       | Display shows "4."  |
+| GUI-TR2-10 | Display Decimal (Complete)               | Click 4, ., 5    | Display shows "4.5" |
+
 
 ### 3.3 TR3: Operation Button Visual State Changes
 
 | Test ID | Test Case | Input Sequence | Expected Result |
 |---------|-----------|----------------|-----------------|
-| GUI-TR3-01 | Addition Button State | Click 5, + | + button shows active state |
-| GUI-TR3-02 | Operation Button Reset | Click 5, +, 5, = | + button returns to idle state after = |
-| GUI-TR3-03 | Operation Switch | Click 5, +, - | + button returns to idle, - button shows active state |
+| GUI-TR3-01 | Addition Button State (Active) | Click Add | Add button background is orange (RGB: 255, 153, 0), Subtract button is gray (RGB: 204, 204, 204) |
+| GUI-TR3-02 | Addition Button State (Reset) | Click Add, = | Add button background is gray (RGB: 204, 204, 204) |
+| GUI-TR3-03 | Subtraction Button State (Active) | Click Subtract | Subtract button background is orange (RGB: 255, 153, 0), Add button is gray (RGB: 204, 204, 204) |
+| GUI-TR3-04 | Subtraction Button State (Reset) | Click Subtract, = | Subtract button background is gray (RGB: 204, 204, 204) |
+| GUI-TR3-05 | Square Button State (Active) | Click x² | x² button background is orange (RGB: 255, 153, 0), √ button is gray (RGB: 204, 204, 204) |
+| GUI-TR3-06 | Square Button State (Reset) | Click x², = | x² button background is gray (RGB: 204, 204, 204) |
+
 
 ### 3.4 Advanced GUI Tests
 
@@ -156,84 +151,54 @@ GUI testing will be performed using a UI test tool (Cypress, Selenium, Testigma,
 
 | Test ID | Test Case | Input Sequence | Expected Result |
 |---------|-----------|----------------|-----------------|
-| GUI-MEM-01 | M+ Button Functionality | Click 1, 0, =, M+ | Memory indicator shows active state |
-| GUI-MEM-02 | M- Button Functionality | Click 1, 0, =, M+, 5, =, M- | Memory indicator shows value changed |
-| GUI-MEM-03 | MR Button Functionality | Click 2, 0, =, M+, Clear, MR | Display shows 20 |
-| GUI-MEM-04 | MC Button Functionality | Click 2, 0, =, M+, MC | Memory indicator shows empty state |
+| GUI-MEM-01 | Memory Add and Recall | Click 2, +, 3, =, M+, DEL, MR | Display shows "5" |
+| GUI-MEM-02 | Memory Subtract | Click 5, +, 5, =, M+, 2, +, 2, =, M-, MR | Display shows "6" |
+| GUI-MEM-03 | Memory Add Non-Result | Click 1, 2, 3, M+ | Display shows "Error: Only results can be added to memory" |
+
 
 #### 3.4.2 Delete and Clear Button Tests
 
 | Test ID | Test Case | Input Sequence | Expected Result |
 |---------|-----------|----------------|-----------------|
-| GUI-DEL-01 | Delete Button | Click 1, 2, 3, Delete | Display shows 12 |
-| GUI-DEL-02 | Multiple Delete | Click 1, 2, 3, ., 4, Delete, Delete | Display shows 123 |
-| GUI-CLR-01 | Clear Button | Click 1, 2, 3, +, 4, 5, 6, Clear | Display shows 0 |
-| GUI-CLR-02 | Clear Memory | Click 1, 0, =, M+, Clear, MR | Display shows 0 |
+| GUI-DEL-01 | Delete Single Digit | Click 1, 2, 3, 4, DEL | Display shows "123" |
+| GUI-DEL-02 | Delete Multiple Digits | Click 1, 2, 3, 4, DEL, DEL | Display shows "12" |
+| GUI-CLR-01 | Clear Operation | Click 1, +, 2, =, C | Display shows "0", Add button background is gray (RGB: 204, 204, 204) |
+
 
 #### 3.4.3 Error Handling Tests
 
 | Test ID | Test Case | Input Sequence | Expected Result |
 |---------|-----------|----------------|-----------------|
-| GUI-ERR-01 | Division by Zero | Click 5, /, 0, = | Display shows "Error" |
-| GUI-ERR-02 | Negative Square Root | Click -, 9, (square root) | Display shows "Error" |
-| GUI-ERR-03 | Invalid Memory Operation | Click 1, 2, 3, M+ | Display shows "Error" |
+| GUI-ERR-01 | Division by Zero | Click 1, 0, ÷, 0, = | Display shows "Error: Division by zero" |
+| GUI-ERR-02 | Negative Square Root | Click 2, -, 5, =, √, = | Display shows "Error: Cannot take square root of negative number" |
 
-## 4. Sample Test Cases with Expected and Actual Results
 
-### 4.1 Model Test Case Sample
+## 4. Test Environment
 
-#### Test Case: Addition (M-ADD-01)
-- Input Sequence: 123 + 456 =
-- Expected Result: 579
-- Actual Result: 579
-- Status: PASS
+- **Testing Tools**:
+	- Model Testing: JUnit 4
+	- GUI Testing: AssertJ Swing 3.17.1
+- **Dependencies**:
+	- Model: `junit-4.13.2.jar`, `hamcrest-core-1.3.jar`
+	- GUI: `assertj-core-3.27.3.jar`, `assertj-swing-3.17.1.jar`, `assertj-swing-junit-3.17.1.jar`, `opentest4j-1.3.0.jar`, `fest-reflect-1.4.1.jar`
 
-#### Test Case: Division by Zero (M-DIV-04)
-- Input Sequence: 25 / 0 =
-- Expected Result: Error
-- Actual Result: Error
-- Status: PASS
+## 5. Test Execution Plan
 
-### 4.2 GUI Test Case Sample
+1. Configure the test environment with JDK 17 and required dependencies.
+2. Add JARs to the project classpath:
+3. Execute model tests using JUnit 4 (`CalculatorModelTest.java`).
+4. Execute GUI tests using JUnit 4 & AssertJ-Swing (`CalculatorGUITest.java`).
+5. Identify any discrepancies between expected and actual results.
+6. Fix any identified bugs and retest.
 
-#### Test Case: Basic Addition (GUI-TR1-01)
-- Input Sequence: Click 1, 2, +, 3, 4, =
-- Expected Result: Display shows 46
-- Actual Result: Display shows 46
-- Status: PASS
+## 6. Test Results
+Tests are documented with screenshots from the editor showing the test methods. Assertions are made with AssertJ-Swing API's, such as `window.textBox().requireText("...")`. The green checkmark in the left margin signifies that each test has been run and passed successfully.
 
-#### Test Case: Division by Zero (GUI-ERR-01)
-- Input Sequence: Click 5, /, 0, =
-- Expected Result: Display shows "Error"
-- Actual Result: Display shows "Error"
-- Status: PASS
-
-#### Test Case: Operation Button State (GUI-TR3-01)
-- Input Sequence: Click 5, +
-- Expected Result: + button shows active state
-- Actual Result: + button shows active state
-- Status: PASS
-
-## 5. Test Environment
-
-- Hardware: [Specify hardware requirements]
-- Software: Java Development Kit (JDK) 17
-- UI Testing Tool: [Specify which tool is being used]
-- Operating System: [Specify supported operating systems]
-- Screen Resolution: 1920x1080 (minimum)
-
-## 6. Test Execution Plan
-
-1. Execute all model tests using Java test code
-2. Capture screenshots of test results
-3. Execute all GUI tests using the UI test tool
-4. Record test execution videos for GUI tests
-5. Document any discrepancies between expected and actual results
-6. Fix any identified bugs and retest
+> [!warning] Test Screenshots Not Included Here
 
 ## 7. Conclusion
 
-This test plan covers a comprehensive set of test cases for both the model and GUI components of the scientific calculator application. The tests verify basic operations, advanced operations, memory functions, and edge cases to ensure the calculator works correctly according to specifications.
+This test plan covers a comprehensive set of test cases for both the model and GUI components of the Calculator application. Model tests verify the computational logic, including basic operations, advanced operations, memory functions, and edge cases. GUI tests ensure the user interface functions correctly, providing appropriate visual feedback for operations, display behavior, button states, and error handling. The tests collectively provide some confidence that the calculator works according to specifications.
 
 ---
 
