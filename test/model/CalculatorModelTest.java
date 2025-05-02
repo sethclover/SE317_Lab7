@@ -126,22 +126,6 @@ public class CalculatorModelTest {
 		assertEquals("4", calculator.calculate());
 	}
 
-	// Error handling
-	@Test
-	public void testDivisionByZero() {
-		calculator.addDigit("5");
-		calculator.setOperation("divide");
-		calculator.addDigit("0");
-		assertEquals("Error: Division by zero", calculator.calculate());
-	}
-
-	@Test
-	public void testNegativeSquareRoot() {
-		calculator.addDigit("-16");
-		calculator.setOperation("sqrt");
-		assertEquals("Error: Cannot take square root of negative number", calculator.calculate());
-	}
-
 	// Memory operations
 	@Test
 	public void testMemoryOperations() {
@@ -178,6 +162,22 @@ public class CalculatorModelTest {
 		// calculator.reset();
 		calculator.recallMemory();
 		assertEquals("7", calculator.getDisplayValue());
+	}
+
+	// Error handling
+	@Test
+	public void testDivisionByZero() {
+		calculator.addDigit("5");
+		calculator.setOperation("divide");
+		calculator.addDigit("0");
+		assertEquals("Error: Division by zero", calculator.calculate());
+	}
+
+	@Test
+	public void testNegativeSquareRoot() {
+		calculator.addDigit("-16");
+		calculator.setOperation("sqrt");
+		assertEquals("Error: Cannot take square root of negative number", calculator.calculate());
 	}
 
 	// Chained operations

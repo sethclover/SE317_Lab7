@@ -166,13 +166,11 @@ public class CalculatorGUITest extends AssertJSwingJUnitTestCase {
 		window.button(withText("5")).click();
 		window.button(withText("=")).click();
 		window.button(withText("M+")).click(); // Memory = 10
-		// window.button(withText("C")).click();
 		window.button(withText("2")).click();
 		window.button("Add").click();
 		window.button(withText("2")).click();
 		window.button(withText("=")).click();
 		window.button(withText("M-")).click(); // Memory = 10 - 4 = 6
-		// window.button(withText("C")).click();
 		window.button(withText("MR")).click();
 		window.textBox().requireText("6");
 	}
@@ -184,28 +182,6 @@ public class CalculatorGUITest extends AssertJSwingJUnitTestCase {
 		window.button(withText("3")).click();
 		window.button(withText("M+")).click();
 		window.textBox().requireText("Error: Only results can be added to memory");
-	}
-
-	@Test
-	public void testDivisionByZero() {
-		window.button(withText("1")).click();
-		window.button(withText("0")).click();
-		window.button(withText("÷")).click();
-		window.button(withText("0")).click();
-		window.button(withText("=")).click();
-		window.textBox().requireText("Error: Division by zero");
-	}
-
-	@Test
-	public void testSquareRootOfNegative() {
-		window.button(withText("2")).click();
-		window.button("Subtract").click();
-		window.button(withText("5")).click();
-		window.button(withText("=")).click();
-		window.textBox().requireText("-3");
-		window.button(withText("√")).click();
-		window.button(withText("=")).click();
-		window.textBox().requireText("Error: Cannot take square root of negative number");
 	}
 
 	@Test
@@ -232,4 +208,27 @@ public class CalculatorGUITest extends AssertJSwingJUnitTestCase {
 		window.textBox().requireText("0");
 		checkButtonBackground(window.button("Add"), new Color(204, 204, 204));
 	}
+
+	@Test
+	public void testDivisionByZero() {
+		window.button(withText("1")).click();
+		window.button(withText("0")).click();
+		window.button(withText("÷")).click();
+		window.button(withText("0")).click();
+		window.button(withText("=")).click();
+		window.textBox().requireText("Error: Division by zero");
+	}
+
+	@Test
+	public void testSquareRootOfNegative() {
+		window.button(withText("2")).click();
+		window.button("Subtract").click();
+		window.button(withText("5")).click();
+		window.button(withText("=")).click();
+		window.textBox().requireText("-3");
+		window.button(withText("√")).click();
+		window.button(withText("=")).click();
+		window.textBox().requireText("Error: Cannot take square root of negative number");
+	}
+
 }

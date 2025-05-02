@@ -3,7 +3,7 @@ SE 317: Lab 7 - Interactive GUI System Testing
 
 ## 1. Introduction
 
-This document outlines the comprehensive test plan for the Scientific Calculator application, implemented using the MVC design pattern with Java Observer class implementation. The test plan covers both model-level testing (computational logic) and GUI-level testing (user interface functionality). Model tests are performed using JUnit 4, and GUI tests are conducted using AssertJ Swing.
+This document outlines the comprehensive test plan for the Scientific Calculator application, implemented using the MVC design pattern with the Java Swing library. The test plan covers both model-level testing (computational logic) and GUI-level testing (user interface functionality). Model tests are performed using JUnit 4, and GUI tests are conducted using AssertJ Swing.
 
 ## 2. Model Testing
 

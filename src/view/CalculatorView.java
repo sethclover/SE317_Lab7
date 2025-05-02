@@ -265,10 +265,4 @@ public class CalculatorView extends JFrame {
 		button.setFont(new Font("Arial", Font.BOLD, 20));
 	}
 
-	/**
-	 * Show a message to the user
-	 */
-	public void showMessage(String message) {
-		JOptionPane.showMessageDialog(this, message);
-	}
 }
